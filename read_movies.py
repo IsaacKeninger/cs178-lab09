@@ -3,7 +3,7 @@
 # Part of Lab 09 — feature/read-dynamo branch_
 
 import boto3
-from boto3.dynamodb.conditions import Key
+from boto3.dynamodb.conditions import Key, Attr
 
 # -------------------------------------------------------
 # Configuration — update REGION if your table is elsewhere
@@ -68,7 +68,6 @@ def print_all_movies():
 def main():
     print("===== Reading from DynamoDB =====\n")
     get_movie_by_title()
-
 
 if __name__ == "__main__":
     main()
