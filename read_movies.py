@@ -20,7 +20,7 @@ def get_table():
 def get_movie_by_title():
 
     # get user input
-    title = input("Enter a movie title: ")
+    title = str(input("Enter a movie title: "))
 
     # parse data
     table = get_table()
