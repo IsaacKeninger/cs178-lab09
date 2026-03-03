@@ -25,15 +25,15 @@ def get_movie_by_title():
     # parse data
     table = get_table()
     response = table.scan(
-        FilterExpression=Attr('title')
+        FilterExpression=Attr('Title')
     )
     print(response)
 
-    if items:
-        print()
-        print(items)
-    else:
-        print("movie not found...")
+    # if items:
+    #     print()
+    #     print(items)
+    # else:
+    #     print("movie not found...")
 
 def print_movie(movie):
     title = movie.get("Title", "Unknown Title")
