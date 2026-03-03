@@ -19,21 +19,22 @@ def get_table():
 
 def get_movie_by_title():
 
-    table = get_table()
+    # get user input
     title = input("Enter a movie title: ")
-    movie = table.scan(
+
+    # parse data
+    table = get_table()
+    response = table.scan(
         FilterExpression=Attr('title').eq(title)
     )
-    movie = movie.get("Items", [])
-    if movie:
-        print(movie)
+    items = response.get("Items", [])
+    print(items)
+
+    if items:
+        print()
+        print(items)
     else:
         print("movie not found...")
-
-
-    #prompt user to enter a title
-    # search table for movie
-    # print, or if not
 
 def print_movie(movie):
     title = movie.get("Title", "Unknown Title")
