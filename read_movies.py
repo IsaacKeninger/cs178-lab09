@@ -24,6 +24,7 @@ def get_movie_by_title():
     movie = table.scan(
         FilterExpression=Attr('title').eq(title)
     )
+    movie = movie.get("Items", [])
     if movie:
         print(movie)
     else:
