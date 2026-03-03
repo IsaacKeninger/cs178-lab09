@@ -17,6 +17,22 @@ def get_table():
     dynamodb = boto3.resource("dynamodb", region_name=REGION)
     return dynamodb.Table(TABLE_NAME)
 
+def get_movie_by_title():
+
+    table = get_table()
+    title = input("Enter a movie title: ")
+    movie = table.scan(
+        FilterExpression=Attr('title').eq(title)
+    )
+    if movie:
+        print(movie)
+    else:
+        print("movie not found...")
+
+
+    #prompt user to enter a title
+    # search table for movie
+    # print, or if not
 
 def print_movie(movie):
     title = movie.get("Title", "Unknown Title")
@@ -29,7 +45,6 @@ def print_movie(movie):
     print(f"  Ratings: {ratings}")
     print(f" Genre: {genre}")
     print()
-
 
 def print_all_movies():
     """Scan the entire Movies table and print each item."""
@@ -57,3 +72,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
