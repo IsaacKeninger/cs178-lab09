@@ -25,7 +25,7 @@ def get_movie_by_title():
     # parse data
     table = get_table()
     response = table.scan(
-        FilterExpression=Attr('title').eq('my_title')
+        FilterExpression=Attr('title').eq('my_title') # please work
     )
     print(response)
 
