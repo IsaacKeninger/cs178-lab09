@@ -28,7 +28,7 @@ def get_movie_by_title():
         FilterExpression=Attr('Title').eq(f"{title}") # please work
     )
 
-    print(response)
+    print(response) #
 
     # if items:
     #     print()
